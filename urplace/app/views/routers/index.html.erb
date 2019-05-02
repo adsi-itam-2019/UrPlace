@@ -3,18 +3,14 @@
 
 <p id="notice"><%= notice %></p>
 
-
-
 <div class=" bg-white">
 
+<h1 class="ml-3 ml-md-5">Lugares para rentar</h1>
 <div class="row">
   
-  <div class="col-12 col-md-8">
+  <div class="col-12 col-md-7">
 
-  <h1 class="ml-3 ml-md-5">Routers</h1>
-
-
-
+  
 
 
    
@@ -24,37 +20,50 @@
      
     <!--Para la foto--> 
     <div class="row">
+      <div class="col-3">
+        <%=image_tag("/inmueble.jpg", class: "img-thumbnail  ")%>
+      </div>
+      <div class="col-9">
+        <span class="float-right">
+          <i class="material-icons" style="color:red;">
+          favorite
+          </i>
+        </span>
 
-    
-    <div class="col-4">
-      <%=image_tag("/inmueble.jpg", class: "img-thumbnail")%>
-    </div>
-    <div class="col-8">
-    
-      <span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star-half checked"></span>
-<span class="fa fa-star"></span>
-
-<span class="fa fa-heart checked"></span>
-<span class="fa fa-heart border-unchecked"></span>
-<span class="fa fa-heart checked-star"></span>
+      <h3 class="titulo">Departamento a 5 minutos del ITAM</h3>
+      <p>Veracruz 10, Col. Tizapàn, Alvaro Obreòn</p>
+      
 
 
-https://codepen.io/DynamicMango/pen/bRaXdB
 
+        <!--https://codepen.io/DynamicMango/pen/bRaXdB--> 
+        <span class="align-text-bottom float-left">
+          <i class="material-icons" style="color:orange;">
+          star
+          </i>
 
-        <td><%= router.name %></td>
-        <td><%= router.latitude %></td>
-        <td><%= router.longitude %></td>
-        <td><% link_to 'Show', router %></td>
-        <td><% link_to 'Edit', edit_router_path(router) %></td>
-        <td><% link_to 'Destroy', router, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+          <i class="material-icons" style="color:orange;">
+          star
+          </i>
 
-<br><br><br><br><br><a class="a"></a>
-    </div>
+          <i class="material-icons" style="color:orange;">
+          star
+          </i>
+
+          <i class="material-icons" style="color:orange;">
+          star
+          </i>
+
+          <i class="material-icons" style="color:orange;">
+          star_half
+          </i>
+        </span>
+
+        <span class="align-text-bottom float-right">
+          $5600/mes
+        </span>
+        
+      </div>
     </div>
 </div>
       
@@ -86,10 +95,10 @@ https://codepen.io/DynamicMango/pen/bRaXdB
 
 
   </div>
-  <div class="col-12 col-md-4">
-    <div style='width: 100%;'>  
-  <div id="map" style='width: 100%; height: 500px;'></div>  
-</div>  
+  <div class="col-12 col-md-5">
+    <div class="mr-md-5" style='width: auto%;'>  
+      <div id="map" style='width: 100%; height: 500px;'></div>  
+    </div>  
   </div>
 
 
@@ -104,7 +113,9 @@ https://codepen.io/DynamicMango/pen/bRaXdB
 
 </body>
 
-
+<style type="text/css">
+  .titulo:hover{color: green; text-decoration: underline;}
+</style>
 
 
 <script type="text/javascript">  
