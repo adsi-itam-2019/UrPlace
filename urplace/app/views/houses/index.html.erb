@@ -14,7 +14,7 @@
 
 
    
-    <% @routers.each do |router| %>
+    <% @houses.each do |house| %>
 
     <div class="ml-3 mr-3 ml-md-5 border shadow-sm p-3 mb-1 bg-white rounded">
      
@@ -30,9 +30,9 @@
           </i>
         </span>
 
-      <h3 class="titulo">Departamento a 5 minutos del ITAM</h3>
-      <p>Veracruz 10, Col. Tizapàn, Alvaro Obreòn</p>
+      <h3 class="titulo"><%= house.name %></p>
       
+      <p><%= house.address %></p>
 
 
 
@@ -58,9 +58,9 @@
           star_half
           </i>
         </span>
-
+        <br>
         <span class="align-text-bottom float-right">
-          $5600/mes
+          <p style="font-size:60%;"><%= number_to_currency(house.price,:precision => 0) %>/mes</p>
         </span>
         
       </div>
@@ -69,29 +69,6 @@
       
     <% end %>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<br>
-
-<%= link_to 'New Router', new_router_path %>
 
 
   </div>
@@ -112,7 +89,6 @@
 
 
 </body>
-
 
 
 
@@ -141,3 +117,6 @@ $("a").click(function() {
 
 
 
+
+
+<%= link_to 'New House', new_house_path %>

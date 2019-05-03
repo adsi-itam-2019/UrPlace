@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_28_200539) do
+ActiveRecord::Schema.define(version: 2019_05_03_004918) do
+
+  create_table "houses", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "postal"
+    t.string "description"
+    t.string "lat"
+    t.string "lon"
+    t.float "rating"
+    t.float "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "routers", force: :cascade do |t|
     t.string "name"

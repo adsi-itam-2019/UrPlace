@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :houses
   root 'home#index'
 
   resources :routers
