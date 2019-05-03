@@ -36,8 +36,8 @@ class HousesController < ApplicationController
         "height" => 30  
       })  
 
-      marker.infowindow render_to_string(:partial => "/routers/info",   
-        :locals => {:name => plot.name, :battery => @battery, :date => rand(6.months.ago..Time.now), :ip => @ip, :connected => @connected })  
+      marker.infowindow render_to_string(:partial => "/houses/info",   
+        :locals => {:name => plot.name, :house => plot })  
    end  
  end
 
@@ -49,6 +49,11 @@ class HousesController < ApplicationController
 
   # GET /houses/new
   def new
+
+    require 'geokit'
+include GeoKit::Geocoders
+
+
     @house = House.new
   end
 

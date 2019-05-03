@@ -48,7 +48,9 @@
     <!--Para la foto--> 
     <div class="row">
       <div class="col-3">
+        <%= link_to(house) do %>
         <%=image_tag("/inmueble.jpg", class: "img-thumbnail  ")%>
+        <%end%>
       </div>
       <div class="col-9">
         <span class="float-right">
@@ -56,9 +58,9 @@
           favorite
           </i>
         </span>
-
-      <h3 class="titulo"><%= house.name %></p>
-      
+        <%= link_to(house, class: "titulo") do %>
+      <h3 class="titulo" style="color: black; text-decoration: none;"><%= house.name %></p>
+      <%end%>
       <p><%= house.address %></p>
 
 
