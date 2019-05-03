@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   resources :houses
-  root 'home#index'
+  root 'houses#index'
+
+  get 'home/profile'
 
   resources :routers
 
