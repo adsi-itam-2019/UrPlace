@@ -1,0 +1,270 @@
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #5CB85C">
+    <a class="navbar-brand" href="#">Logo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExample04">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Ofrece tu espacio</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Acerca de</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Contacto</a>
+        </li>
+      </ul>
+      <class="form-inline my-2 my-md-0">
+        <input class="form-control" type="text" placeholder="Search">
+      </form>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4" src="/logo.png" alt="" width="150" height="150  ">
+      <h2>Arrenda tu lugar</h2>
+      <p class="lead">¡Estás a un paso de poder arrendar tu lugar!</p>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 order-md-2 mb-4">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-muted">Sube tus fotos</span>
+          <span class="badge badge-secondary badge-pill">0</span>
+        </h4>
+
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+              <h6 class="my-0">Selecciona tus fotos</h6>
+              <small class="text-muted">Sube aquí las fotos de tu lugar para que los demás la puedan ver</small>
+            </div>
+            <span class="text-muted">[icono de foto]</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div class="input-group mb-3">
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="inputGroupFile02">
+                <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Elige un archivo</label>
+              </div>
+            </div>
+            <div class="rinput-group-append">
+              <span class="input-group-text" id="inputGroupFileAddon02">Subir tus fotos</span>
+            </div>
+          </li>
+        </ul>
+
+        
+
+
+
+<%= form_with(model: @house, local: true) do |form| %>
+  <% if @house.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(house.errors.count, "error") %> prohibited this house from being saved:</h2>
+
+      <ul>
+      <% house.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+
+
+    
+ 
+
+  
+
+
+
+
+
+
+      </div>
+      <div class="col-md-8 order-md-1">
+        <h4 class="mb-3">Tu lugar</h4>
+        <form class="needs-validation" novalidate="">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="firstName">Nombre de tu lugar</label>
+              
+             
+
+
+
+    <% form.label :name %>
+    <%= form.text_field :name , class: "form-control", id: "name", placeholder: "Un nombre"%>
+        
+              <div class="invalid-feedback">
+                Dirección requirida.
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="address">Dirección</label>
+            
+
+            <% form.label :address %>
+    <%= form.text_field :address ,  class: "form-control", id: "address", placeholder: "Una dirección"%>
+            <div class="invalid-feedback">
+              Dirección requirida.
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="address">Descripción</label>
+            
+
+
+
+    <% form.label :description %>
+    <%= form.text_field :description ,  class: "form-control", id: "description", placeholder: "Una descripción"%>
+
+
+  <div class="none" style="display: none;">
+    <% form.label :lat %>
+    <%= form.text_field :lat, value: 19.94 %>
+  
+
+  <div class="field" style="display: none;">
+    <% form.label :lon %>
+    <%= form.text_field :lon, value: -99.15 %>
+  </div>
+
+  <div class="field">
+    <% form.label :rating %>  
+    <% form.text_field :rating %>
+  </div>
+
+  <div class="field">
+    <% form.label :price %>
+    <% form.text_field :price %>
+  </div>
+
+</div>
+
+
+            <div class="invalid-feedback">
+              Dirección requirida.
+            </div>
+          </div>
+
+          <div class="row">
+            
+            <div class="col-md-3 mb-3">
+              <label for="zip">Código postal</label>
+              
+
+        
+    <% form.label :postal %>
+    <%= form.text_field :postal ,  class: "form-control", id: "zip", placeholder: "00000" %>
+  
+
+
+              <div class="invalid-feedback">
+                Código postal requirido.
+              </div>
+            </div>
+          </div>
+          <hr class="mb-4">
+        
+          <h4 class="mb-3">¿Qué tipo de pago quieres aceptar?</h4>
+
+          <div class="d-block my-4">
+            <div class="custom-control custom-checkbox" >
+              <input id="credit" name="paymentMethod" type="checkbox" class="custom-control-input" checked="" required="" style="background-color: #5CB85C; border-color: #5CB85C">
+              <label class="custom-control-label" for="credit">Tarjeta de crédito</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input id="debit" name="paymentMethod" type="checkbox" class="custom-control-input" required="">
+              <label class="custom-control-label" for="debit">Tarjeta de débito</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input id="paypal" name="paymentMethod" type="checkbox" class="custom-control-input" required="">
+              <label class="custom-control-label" for="paypal">PayPal</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input id="transferencia" name="paymentMethod" type="checkbox" class="custom-control-input" required="">
+              <label class="custom-control-label" for="transferencia">Transferencia bancaria</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" style="background-color: #5CB85C; border-color: #5CB85C" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Tipo de cuenta
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                  <button class="dropdown-item" type="button">Débito</button>
+                  <button class="dropdown-item" type="button">Crédito</button>
+                  <button class="dropdown-item" type="button">Clabe</button>
+                  <button class="dropdown-item" type="button">Celular</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" style="background-color: #5CB85C; border-color: #5CB85C" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Banco destino
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                  <button class="dropdown-item" type="button">BBVA Bancomer</button>
+                  <button class="dropdown-item" type="button">HSBC</button>
+                  <button class="dropdown-item" type="button">Santader</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="cc-name">Tipo de cuenta</label>
+              <input type="text" class="form-control" id="cc-name" placeholder="" required="">
+              <div class="invalid-feedback">
+                Name on card is required
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="cc-number">Númeto de cuenta</label>
+              <input type="text" class="form-control" id="cc-number" placeholder="" required="">
+              <div class="invalid-feedback">
+                Tu número de cuenta es requerido
+              </div>
+            </div>
+          </div>
+          <hr class="mb-4">
+          
+        
+
+          <div class="actions">
+    <% form.submit "Subir", class: "btn btn-primary btn-lg btn-block", style: "background-color: #5CB85C; border-color: #5CB85C"%>
+
+<%= button_to "Subir", houses_path, method: 'get', class: "btn btn-primary btn-lg btn-block", style: "background-color: #5CB85C; border-color: #5CB85C"%>
+
+
+  </div>
+<% end %>
+      </div>
+    </div>
+
+  </div>
+  <footer class="container">
+    <p class="float-right"><a href="#" style="color: #5DB95D">Ir a arriba</a></p>
+    <p>© 2019 Ur Place. · <a href="#" style="color: #5DB95D">Privacidad</a> · <a href="#" style="color: #5DB95D">Términos</a></p>
+  </footer>
+</body>
+
+
+
+<% render 'form', house: @house %>
+
+<% link_to 'Back', houses_path %>

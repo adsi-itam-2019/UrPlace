@@ -1,0 +1,134 @@
+<body class="">
+
+
+
+<nav class="navbar navbar-expand-md navbar-dark" style="background-color: #5CB85C">
+    <a class="navbar-brand" href="#">Urplace</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExample04">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Ofrece tu espacio</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Acerca de</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Contacto</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-md-0">
+        <input class="form-control" type="text" placeholder="Search">
+      </form>
+    </div>
+  </nav>
+
+<p id="notice"><%= notice %></p>
+
+
+<div class=" bg-white">
+
+<h1 class="ml-3 ml-md-5">Lugares para rentar</h1>
+<div class="row">
+  
+  <div class="col-12 col-md-7">
+
+  
+
+
+   
+    <% @houses.each do |house| %>
+
+    <div class="ml-3 mr-3 ml-md-5 border shadow-sm p-3 mb-1 bg-white rounded">
+     
+    <!--Para la foto--> 
+    <div class="row">
+      <div class="col-3">
+        <%= link_to(house) do %>
+        <%=image_tag("/inmueble.jpg", class: "img-thumbnail  ")%>
+        <%end%>
+      </div>
+      <div class="col-9">
+        <span class="float-right">
+          <i class="material-icons" style="color:red;">
+          favorite
+          </i>
+        </span>
+        <%= link_to(house, class: "titulo") do %>
+      <h3 class="titulo" style="color: black; text-decoration: none;"><%= house.name %></p>
+      <%end%>
+      <p><%= house.address %></p>
+
+
+
+        <!--https://codepen.io/DynamicMango/pen/bRaXdB--> 
+        <span class="align-text-bottom float-left">
+          <i class="material-icons" style="color:orange;">
+          star
+          </i>
+
+          <i class="material-icons" style="color:orange;">
+          star
+          </i>
+
+          <i class="material-icons" style="color:orange;">
+          star
+          </i>
+
+          <i class="material-icons" style="color:orange;">
+          star
+          </i>
+
+          <i class="material-icons" style="color:orange;">
+          star_half
+          </i>
+        </span>
+
+        <span class="align-text-bottom float-right">
+          <p style="font-size:60%;"><%= number_to_currency(house.price,:precision => 0) %>/mes</p>
+        </span>
+        
+      </div>
+    </div>
+</div>
+      
+    <% end %>
+
+
+
+  </div>
+  <div class="col-12 col-md-5">
+    <div class="mr-md-5" style='width: auto%;'>  
+      <div id="map" style='width: 100%; height: 500px;'></div>  
+    </div>  
+  </div>
+
+
+</div>
+
+
+  
+</div>
+
+
+
+<footer class="container"><br>
+    <p class="float-right"><a href="#" style="color: #5DB95D">Ir a arriba</a></p>
+    <p>© 2019 Ur Place. · <a href="#" style="color: #5DB95D">Privacidad</a> · <a href="#" style="color: #5DB95D">Términos</a></p>
+  </footer>
+</body>
+
+
+
+<script type="text/javascript">  
+handler = Gmaps.build('Google');  
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){  
+    markers = handler.addMarkers(<%=raw @routers_default.to_json %>);  
+    handler.bounds.extendWith(markers);  
+    handler.fitMapToBounds();  
+});  
+
+</script>
