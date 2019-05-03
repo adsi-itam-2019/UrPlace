@@ -4,8 +4,43 @@ class HousesController < ApplicationController
   # GET /houses
   # GET /houses.json
   def index
+
+    
     @houses = House.all
+
+    load_routers(@houses)
+    
+    
   end
+
+  def load_routers(houses)  
+   @routers_default = Gmaps4rails.build_markers(houses) do |plot, marker|  
+      marker.lat plot.lat 
+      marker.lng plot.lon  
+
+      @status = rand(1..4)  
+      @battery = rand(10..90)  
+      @ip = "192.168."+rand(0..255).to_s+"."+rand(15..250).to_s  
+      @connected = rand(50..100)  
+
+      if @status == 1  
+        url_alert = "good.png"  
+        @status == "Normal"  
+      else  
+        url_alert = "alert.png"  
+      end  
+
+      marker.picture({  
+          
+        "width" => 35,  
+        "height" => 30  
+      })  
+
+      marker.infowindow render_to_string(:partial => "/routers/info",   
+        :locals => {:name => plot.name, :battery => @battery, :date => rand(6.months.ago..Time.now), :ip => @ip, :connected => @connected })  
+   end  
+ end
+
 
   # GET /houses/1
   # GET /houses/1.json

@@ -1,5 +1,30 @@
 <p id="notice"><%= notice %></p>
 
+
+  <div id="map" style='width: 800px; height: 400px;'></div>  
+</div>  
+
+<script type="text/javascript">  
+handler = Gmaps.build('Google');  
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){  
+  markers = handler.addMarkers([  
+    {  
+      "lat": <%= @house.lat %>,  
+      "lng": <%= @house.lon %>,  
+      "picture": {  
+        "width":  32,  
+        "height": 32  
+      },  
+      
+    }  
+  ]);  
+  handler.bounds.extendWith(markers);  
+  handler.fitMapToBounds();  
+});  
+</script>
+
+<p id="notice"><%= notice %></p>
+
 <p>
   <strong>Name:</strong>
   <%= @house.name %>
@@ -39,6 +64,6 @@
   <strong>Price:</strong>
   <%= @house.price %>
 </p>
-
+aaaa
 <%= link_to 'Edit', edit_house_path(@house) %> |
 <%= link_to 'Back', houses_path %>
