@@ -1,17 +1,33 @@
-<div class="container">
+<style >
+  @media screen and (min-width: 800px) 
+  {
+  .container {width: 30%; height: 30%;}
+  }
+  div {background-color: green}
+</style>
 
-<div class="row">
-  
-  <div class="col-12 col-md-8">
-    
-  </div>
-  <div class="col-12 col-md-4">
+<div class="container text-center">
 
-  </div>
+    <br></br>
+      <br></br>
+      <img class="mb-4" src="/logo.png" alt="" width="200" height="100">
 
+    <h1 class="h3 mb-3 font-weight-normal">Iniciar Sesion</h1>
+    <br>
+    <%= form_for(resource, as: resource_name, url: home_path(resource_name), class: "form-signin") do |f| %>
+      <div class="field">
+        <% f.label :email , "Correo electrónico"%>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" , class: "form-control", placeholder:"Correo "%>
+      </div>
 
-</div>
-
-
-  
+      <div class="field">
+        <% f.label :password , "Contraseña"%>
+        <%= f.password_field :password, autocomplete: "current-password" , class: "form-control", placeholder: "Contraseña"%>
+      </div>
+      <br>
+      <div class="actions">
+        <%= f.submit "Iniciar Sesion", class: "btn btn-lg btn-primary btn-block" %>
+      </div>
+    <% end %>
+    <br>
 </div>
