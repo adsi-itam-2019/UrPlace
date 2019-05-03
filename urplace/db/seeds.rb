@@ -11,4 +11,6 @@ House.create(name: 'Departamento a 5 minutos del ITAM', address: '35 Valentín G
 
 House.create(name: 'Casa en periférico cerca del ITAM', address: 'Blvd. Adolfo López Mateos Ciudad de México, Cd. de México' , postal: '01130', price: 5500, lat: 19.3446787, lon: -99.202286)
 
-House.create(name: 'Casa en periférico cerca del ITAM', address: '54 General Marcial Lazcano Ciudad de México, Cd. de México' , postal: '01130', price: 3500, lat: 19.3483258 , lon: -99.1973752)
+House.create(name: 'Cuarto en Marcial Lazcano. Camina al ITAM', address: '54 General Marcial Lazcano Ciudad de México, Cd. de México' , postal: '01130', price: 3500, lat: 19.3483258 , lon: -99.1973752)
+
+House.create(name: 'Frente al ITAM', address: '54 General Marcial Lazcano Ciudad de México, Cd. de México' , postal: '01130', price: 3500, lat: 19.3429886, lon: -99.1992569)
