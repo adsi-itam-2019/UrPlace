@@ -50,8 +50,6 @@ class HousesController < ApplicationController
   # GET /houses/new
   def new
 
-    require 'geokit'
-include GeoKit::Geocoders
 
 
     @house = House.new

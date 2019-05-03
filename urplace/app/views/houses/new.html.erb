@@ -59,6 +59,35 @@
         </ul>
 
         
+
+
+
+<%= form_with(model: @house, local: true) do |form| %>
+  <% if @house.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(house.errors.count, "error") %> prohibited this house from being saved:</h2>
+
+      <ul>
+      <% house.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+
+
+    
+ 
+
+  
+
+
+
+
+
+
       </div>
       <div class="col-md-8 order-md-1">
         <h4 class="mb-3">Tu lugar</h4>
@@ -66,7 +95,14 @@
           <div class="row">
             <div class="col-md-6 mb-3">
               <label for="firstName">Nombre de tu lugar</label>
-              <input type="text" class="form-control" id="name" placeholder="Un nombre" value="" required="">
+              
+             
+
+
+
+    <% form.label :name %>
+    <%= form.text_field :name , class: "form-control", id: "name", placeholder: "Un nombre"%>
+        
               <div class="invalid-feedback">
                 Dirección requirida.
               </div>
@@ -75,7 +111,10 @@
 
           <div class="mb-3">
             <label for="address">Dirección</label>
-            <input type="text" class="form-control" id="address" placeholder="Una dirección" required="">
+            
+
+            <% form.label :address %>
+    <%= form.text_field :address ,  class: "form-control", id: "address", placeholder: "Una dirección"%>
             <div class="invalid-feedback">
               Dirección requirida.
             </div>
@@ -83,7 +122,37 @@
 
           <div class="mb-3">
             <label for="address">Descripción</label>
-            <input type="text" class="form-control" id="description" placeholder="Una descripción" required="">
+            
+
+
+
+    <% form.label :description %>
+    <%= form.text_field :description ,  class: "form-control", id: "description", placeholder: "Una descripción"%>
+
+
+  <div class="none">
+    <% form.label :lat %>
+    <% form.text_field :lat %>
+  
+
+  <div class="field">
+    <% form.label :lon %>
+    <% form.text_field :lon %>
+  </div>
+
+  <div class="field">
+    <% form.label :rating %>
+    <% form.text_field :rating %>
+  </div>
+
+  <div class="field">
+    <% form.label :price %>
+    <% form.text_field :price %>
+  </div>
+
+</div>
+
+
             <div class="invalid-feedback">
               Dirección requirida.
             </div>
@@ -93,7 +162,14 @@
             
             <div class="col-md-3 mb-3">
               <label for="zip">Código postal</label>
-              <input type="text" class="form-control" id="zip" placeholder="00000" required="">
+              
+
+        
+    <% form.label :postal %>
+    <%= form.text_field :postal ,  class: "form-control", id: "zip", placeholder: "00000" %>
+  
+
+
               <div class="invalid-feedback">
                 Código postal requirido.
               </div>
@@ -166,8 +242,13 @@
             </div>
           </div>
           <hr class="mb-4">
-          <button class="btn btn-primary btn-lg btn-block" style="background-color: #5CB85C; border-color: #5CB85C" type="submit">Sube tu lugar</button>
+          
         </form>
+
+          <div class="actions">
+    <%= form.submit "Subir", class: "btn btn-primary btn-lg btn-block", style: "background-color: #5CB85C; border-color: #5CB85C"%>
+  </div>
+<% end %>
       </div>
     </div>
 
@@ -179,10 +260,7 @@
 </body>
 
 
-<hr>
 
-<h1>New House</h1>
+<% render 'form', house: @house %>
 
-<%= render 'form', house: @house %>
-
-<%= link_to 'Back', houses_path %>
+<% link_to 'Back', houses_path %>
