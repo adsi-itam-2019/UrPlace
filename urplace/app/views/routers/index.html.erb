@@ -1,0 +1,132 @@
+<body class="">
+
+
+<p id="notice"><%= notice %></p>
+
+<div class=" bg-white">
+
+<h1 class="ml-3 ml-md-5">Lugares para rentar</h1>
+<div class="row">
+  
+  <div class="col-12 col-md-7">
+
+  
+
+
+   
+    <% @routers.each do |router| %>
+
+    <div class="ml-3 mr-3 ml-md-5 border shadow-sm p-3 mb-1 bg-white rounded">
+     
+    <!--Para la foto--> 
+    <div class="row">
+      <div class="col-3">
+        <%=image_tag("/inmueble.jpg", class: "img-thumbnail  ")%>
+      </div>
+      <div class="col-9">
+        <span class="float-right">
+          <i class="material-icons" style="color:red;">
+          favorite
+          </i>
+        </span>
+
+      <h3 class="titulo">Departamento a 5 minutos del ITAM</h3>
+      <p>Veracruz 10, Col. Tizapàn, Alvaro Obreòn</p>
+      
+
+
+
+        <!--https://codepen.io/DynamicMango/pen/bRaXdB--> 
+        <span class="align-text-bottom float-left">
+          <i class="material-icons" style="color:orange;">
+          star
+          </i>
+
+          <i class="material-icons" style="color:orange;">
+          star
+          </i>
+
+          <i class="material-icons" style="color:orange;">
+          star
+          </i>
+
+          <i class="material-icons" style="color:orange;">
+          star
+          </i>
+
+          <i class="material-icons" style="color:orange;">
+          star_half
+          </i>
+        </span>
+
+        <span class="align-text-bottom float-right">
+          $5600/mes
+        </span>
+        
+      </div>
+    </div>
+</div>
+      
+    <% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+<%= link_to 'New Router', new_router_path %>
+
+
+  </div>
+  <div class="col-12 col-md-5">
+    <div class="mr-md-5" style='width: auto%;'>  
+      <div id="map" style='width: 100%; height: 500px;'></div>  
+    </div>  
+  </div>
+
+
+</div>
+
+
+  
+</div>
+
+
+
+
+</body>
+
+
+
+
+<script type="text/javascript">  
+handler = Gmaps.build('Google');  
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){  
+    markers = handler.addMarkers(<%=raw @routers_default.to_json %>);  
+    handler.bounds.extendWith(markers);  
+    handler.fitMapToBounds();  
+});  
+
+</script>
+
+
+
+
+
